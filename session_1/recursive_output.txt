@@ -1,0 +1,228 @@
+internal combine: 
+bottom-level final:  [[0]]
+external combine: 
+bottom-level final:  [[1]]
+internal combine: 
+bottom-level final:  [[2]]
+external combine: 
+bottom-level final:  [[3]]
+internal combine: 
+bottom-level final:  [[4]]
+external combine: 
+combine:  [[0], [1], [2], [3], [4]]
+internal combine: 
+altered array:  [1, 2, 3, 4]
+iterations:  2
+[[nums[0]]: [[0]]
+internal combine: 
+bottom-level final:  [[1]]
+external combine: 
+bottom-level final:  [[2]]
+internal combine: 
+bottom-level final:  [[3]]
+external combine: 
+bottom-level final:  [[4]]
+internal combine: 
+final after recursion:  [[0, 1], [0, 2], [0, 3], [0, 4]]
+external combine: 
+altered array:  [2, 3, 4]
+iterations:  2
+[[nums[0]]: [[1]]
+internal combine: 
+bottom-level final:  [[2]]
+external combine: 
+bottom-level final:  [[3]]
+internal combine: 
+bottom-level final:  [[4]]
+external combine: 
+final after recursion:  [[1, 2], [1, 3], [1, 4]]
+internal combine: 
+altered array:  [3, 4]
+iterations:  2
+[[nums[0]]: [[2]]
+internal combine: 
+bottom-level final:  [[3]]
+external combine: 
+bottom-level final:  [[4]]
+internal combine: 
+final after recursion:  [[2, 3], [2, 4]]
+external combine: 
+altered array:  [4]
+iterations:  2
+[[nums[0]]: [[3]]
+internal combine: 
+bottom-level final:  [[4]]
+external combine: 
+final after recursion:  [[3, 4]]
+internal combine: 
+combine:  [[0, 1], [0, 2], [0, 3], [0, 4], [1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
+internal combine: 
+altered array:  [1, 2, 3, 4]
+iterations:  3
+[[nums[0]]: [[0]]
+internal combine: 
+altered array:  [2, 3, 4]
+iterations:  2
+[[nums[0]]: [[1]]
+internal combine: 
+bottom-level final:  [[2]]
+external combine: 
+bottom-level final:  [[3]]
+internal combine: 
+bottom-level final:  [[4]]
+external combine: 
+final after recursion:  [[1, 2], [1, 3], [1, 4]]
+external combine: 
+altered array:  [3, 4]
+iterations:  2
+[[nums[0]]: [[2]]
+internal combine: 
+bottom-level final:  [[3]]
+external combine: 
+bottom-level final:  [[4]]
+internal combine: 
+final after recursion:  [[2, 3], [2, 4]]
+internal combine: 
+altered array:  [4]
+iterations:  2
+[[nums[0]]: [[3]]
+internal combine: 
+bottom-level final:  [[4]]
+external combine: 
+final after recursion:  [[3, 4]]
+external combine: 
+final after recursion:  [[0, 1, 2], [0, 1, 3], [0, 1, 4], [0, 2, 3], [0, 2, 4], [0, 3, 4]]
+external combine: 
+altered array:  [2, 3, 4]
+iterations:  3
+[[nums[0]]: [[1]]
+internal combine: 
+altered array:  [3, 4]
+iterations:  2
+[[nums[0]]: [[2]]
+internal combine: 
+bottom-level final:  [[3]]
+external combine: 
+bottom-level final:  [[4]]
+internal combine: 
+final after recursion:  [[2, 3], [2, 4]]
+external combine: 
+altered array:  [4]
+iterations:  2
+[[nums[0]]: [[3]]
+internal combine: 
+bottom-level final:  [[4]]
+external combine: 
+final after recursion:  [[3, 4]]
+internal combine: 
+final after recursion:  [[1, 2, 3], [1, 2, 4], [1, 3, 4]]
+internal combine: 
+altered array:  [3, 4]
+iterations:  3
+[[nums[0]]: [[2]]
+internal combine: 
+altered array:  [4]
+iterations:  2
+[[nums[0]]: [[3]]
+internal combine: 
+bottom-level final:  [[4]]
+external combine: 
+final after recursion:  [[3, 4]]
+external combine: 
+final after recursion:  [[2, 3, 4]]
+external combine: 
+combine:  [[0, 1, 2], [0, 1, 3], [0, 1, 4], [0, 2, 3], [0, 2, 4], [0, 3, 4], [1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]
+internal combine: 
+altered array:  [1, 2, 3, 4]
+iterations:  4
+[[nums[0]]: [[0]]
+internal combine: 
+altered array:  [2, 3, 4]
+iterations:  3
+[[nums[0]]: [[1]]
+internal combine: 
+altered array:  [3, 4]
+iterations:  2
+[[nums[0]]: [[2]]
+internal combine: 
+bottom-level final:  [[3]]
+external combine: 
+bottom-level final:  [[4]]
+internal combine: 
+final after recursion:  [[2, 3], [2, 4]]
+external combine: 
+altered array:  [4]
+iterations:  2
+[[nums[0]]: [[3]]
+internal combine: 
+bottom-level final:  [[4]]
+external combine: 
+final after recursion:  [[3, 4]]
+internal combine: 
+final after recursion:  [[1, 2, 3], [1, 2, 4], [1, 3, 4]]
+external combine: 
+altered array:  [3, 4]
+iterations:  3
+[[nums[0]]: [[2]]
+internal combine: 
+altered array:  [4]
+iterations:  2
+[[nums[0]]: [[3]]
+internal combine: 
+bottom-level final:  [[4]]
+external combine: 
+final after recursion:  [[3, 4]]
+external combine: 
+final after recursion:  [[2, 3, 4]]
+internal combine: 
+final after recursion:  [[0, 1, 2, 3], [0, 1, 2, 4], [0, 1, 3, 4], [0, 2, 3, 4]]
+external combine: 
+altered array:  [2, 3, 4]
+iterations:  4
+[[nums[0]]: [[1]]
+internal combine: 
+altered array:  [3, 4]
+iterations:  3
+[[nums[0]]: [[2]]
+internal combine: 
+altered array:  [4]
+iterations:  2
+[[nums[0]]: [[3]]
+internal combine: 
+bottom-level final:  [[4]]
+external combine: 
+final after recursion:  [[3, 4]]
+external combine: 
+final after recursion:  [[2, 3, 4]]
+external combine: 
+final after recursion:  [[1, 2, 3, 4]]
+internal combine: 
+combine:  [[0, 1, 2, 3], [0, 1, 2, 4], [0, 1, 3, 4], [0, 2, 3, 4], [1, 2, 3, 4]]
+internal combine: 
+altered array:  [1, 2, 3, 4]
+iterations:  5
+[[nums[0]]: [[0]]
+internal combine: 
+altered array:  [2, 3, 4]
+iterations:  4
+[[nums[0]]: [[1]]
+internal combine: 
+altered array:  [3, 4]
+iterations:  3
+[[nums[0]]: [[2]]
+internal combine: 
+altered array:  [4]
+iterations:  2
+[[nums[0]]: [[3]]
+internal combine: 
+bottom-level final:  [[4]]
+external combine: 
+final after recursion:  [[3, 4]]
+external combine: 
+final after recursion:  [[2, 3, 4]]
+external combine: 
+final after recursion:  [[1, 2, 3, 4]]
+external combine: 
+final after recursion:  [[0, 1, 2, 3, 4]]
+external combine: 
+combine:  [[0, 1, 2, 3, 4]]
