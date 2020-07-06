@@ -1,0 +1,6 @@
+[submodule "megawapp"]
+	path = megawapp
+	url = https://github.com/brondle/megawapp.git
+[submodule "session_3/megawapp"]
+	path = session_3/megawapp
+	url = https://github.com/brondle/megawapp.git
