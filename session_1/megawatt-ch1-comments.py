@@ -55,6 +55,8 @@ def combine(num, words):
             final = final + [[words[0]] +
                     c for c in combine(num - 1, words[1:])]
             print('final in else statement', final)
+            for c in combine(num - 1, words[1:]):
+                print('c: ')
         final = final + combine(num, words[1:])
     return final
 
@@ -68,19 +70,19 @@ understood = ['all', 'most', 'much', 'half', 'little', 'less', 'bits',
 para = ''
 preface = ', and sometimes they '
 #I understand what is mostly happening in this funciton, but I don't get how on the first pass through the first 'sometimes' doesn't ahve an 'and' in front
-for num in range(len(voices)): #num is an iterating variable that counts through the number of items (a list of strings) in voices, it is currently 8
-    for word_list in combine(num + 1, voices):#this line calls the function above, with the index number and the word from the list
-        #for each index item in the voices list, send them into the combine function and add them to the varaible called para.
-        para = para + preface + ' and '.join(word_list) #the ' and '.join(word_list) takes the words out of a list form and puts them into a string, with ' and ' in between each item
-        print('word list: ', combine(num + 1, voices))
-        if len(word_list) == 1: #this is a conditional that says, if the word list is down to 1, the paragraph will be different from the prior versions
-            para = para + ' only'
-#the [5:] is saying start the paragraph after the 5th item counting from 0.
-para = ('Watt heard voices. Now these voices,' + para[5:] +
-    ', all together, at the same time, as now, to mention ' +
-    'only these ' + spelled_out[len(voices)] + ' kinds of voices, for ' +
-    'there were others. And sometimes Watt understood ' +
-    ', and sometimes he understood '.join(understood) + ', as now.') #the majority of the text we are adding happens at para[5:]
-text.append(para)
+#for num in range(len(voices)): #num is an iterating variable that counts through the number of items (a list of strings) in voices, it is currently 8
+#    for word_list in combine(num + 1, voices):#this line calls the function above, with the index number and the word from the list
+#        #for each index item in the voices list, send them into the combine function and add them to the varaible called para.
+#        para = para + preface + ' and '.join(word_list) #the ' and '.join(word_list) takes the words out of a list form and puts them into a string, with ' and ' in between each item
+#        print('word list: ', combine(num + 1, voices))
+#        if len(word_list) == 1: #this is a conditional that says, if the word list is down to 1, the paragraph will be different from the prior versions
+#            para = para + ' only'
+##the [5:] is saying start the paragraph after the 5th item counting from 0.
+#para = ('Watt heard voices. Now these voices,' + para[5:] +
+#    ', all together, at the same time, as now, to mention ' +
+#    'only these ' + spelled_out[len(voices)] + ' kinds of voices, for ' +
+#    'there were others. And sometimes Watt understood ' +
+#    ', and sometimes he understood '.join(understood) + ', as now.') #the majority of the text we are adding happens at para[5:]
+#text.append(para)
 #I added a print funciton into chapter one, so we didn't have to print out the book in order to run the program
 print(text)
