@@ -48,6 +48,7 @@ a = ' '
 b = ' '
 
 def fibo_one_word_list():
+    a, b = '', ''
     for i in range(it-1):
         yield a, b
         a, b = words[i+1], words[i] + " " + words[i+1]
