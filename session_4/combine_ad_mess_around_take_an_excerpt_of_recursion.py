@@ -22,9 +22,13 @@ def combine(num, words):
             # print ('final in if statement', final)
         else:#the double array/list places in a subarray, it concatenates it to a list
             # for c in combine(num-1,words[1:]):
-            #     final = final + [words[0] + combine(num-1, words[1:])]
+            #     print('c is ', c)
+            #     print('words[0] ', words[0])
+            #     final = final + [words[0]]
+
             final = final + [[words[0]] +
                     c for c in combine(num - 1, words[1:])]
+
             # print(‘c is ‘, c) 
             # for c in combine(num - 1, words[1:]):  
             # print('final in else statement', final) #the line above builds a single array each time it is run,
@@ -32,6 +36,28 @@ def combine(num, words):
         final = final + combine(num, words[1:])#this one builds the array of arrays. in the program flow,
     return final
 
+#Brent's version
+# def combine(num, words):
+#     final = []
+#     if num > 0 and len(words) >= num:
+#         # print ('num: ', num)
+#         if num == 1:
+#             print(' base case ')
+#             final = final + [[words[0]]]
+#             # print ('final in if statement', final)
+#         else:#the double array/list places in a subarray, it concatenates it to a list
+#             for c in combine(num-1,words[1:]):
+#                 print('words[0]: ', words[0])
+#                 print('c: ', c)
+#                 final = final + [words[0]] + c            # final = final + [[words[0]] +
+#                 print('final: ', final)
+# #                    c for c in combine(num - 1, words[1:])]
+#             # print(‘c is ‘, c) 
+#             # for c in combine(num - 1, words[1:]):  
+#             # print('final in else statement', final) #the line above builds a single array each time it is run,
+#             # in other other words the internal array builds one and the one below builds the whole.
+#         final = final + combine(num, words[1:])#this one builds the array of arrays. in the program flow,
+#     return final
 
 # def combine(num, words):
 #     final = []

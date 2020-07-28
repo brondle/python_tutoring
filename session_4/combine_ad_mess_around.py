@@ -24,11 +24,13 @@ def combine(i, word_list):
             # output = output + [word_list[r_list_choice2].split(' ')]
             output = output + [word_list[i].split()]
         else:
-            # output = output + [word_list[i] + c for c in combine(i-1, word_list[1:])]
+            output = output + [[word_list[i]] + c for c in combine(i-1, word_list[1:])]
             print("i is ", i)
+            #error fix from class: you need to make the string into an array so it is the same as a list or it will throw an error
+            #the error was coming because the list comprehension was returning a list but the word_list[i] is a string
             # output = output + [[word_list[i].split(' ')[random.randint(0,1)]] + c for c in combine(i-1, word_list[1:])]
-            r_list_choice = int(len(word_list)*random.random())
-            output = output + [word_list[r_list_choice].split() + c for c in combine(i-1, word_list[1:])]
+            # r_list_choice = int(len(word_list)*random.random())
+            # output = output + [word_list[r_list_choice].split() + c for c in combine(i-1, word_list[1:])]
 
             # output = output + [word_list[i].split(' ')[random.randint(0,1)]] + " "+[word_list[i].split(' ')[random.randint(0,1)] + combine(i-1, word_list[1:])]
             # output += [word_list[i].split(' ')[random.randint(0,1)]]+" "+ [word_list[i].split(' ')[random.randint(0,1)] + combine(i-1, word_list[1:])]
