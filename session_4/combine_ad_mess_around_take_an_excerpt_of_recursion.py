@@ -18,13 +18,16 @@ def combine(num, words):
     if num > 0 and len(words) >= num:
         # print ('num: ', num)
         if num == 1:
+            print('base case')
             final = final + [[words[0]]]
             # print ('final in if statement', final)
         else:#the double array/list places in a subarray, it concatenates it to a list
-            # for c in combine(num-1,words[1:]):
-            #     final = final + [words[0] + combine(num-1, words[1:])]
-            final = final + [[words[0]] +
-                    c for c in combine(num - 1, words[1:])]
+            for c in combine(num-1,words[1:]):
+                print('words[0]: ', words[0])
+                print('c: ', c)
+                final = final + [words[0]] + c            # final = final + [[words[0]] +
+                print('final: ', final)
+#                    c for c in combine(num - 1, words[1:])]
             # print(‘c is ‘, c) 
             # for c in combine(num - 1, words[1:]):  
             # print('final in else statement', final) #the line above builds a single array each time it is run,
@@ -50,58 +53,59 @@ def combine(num, words):
 #             # in other other words the internal array builds one and the one below builds the whole.
 #         final = final + combine(num, words[1:])#this one builds the array of arrays. in the program flow,
 #     return final
+def write_recursive_line() {
 
-print(combine(3, sounds))
-sentence = ' '
-the_whole =[]
-my_recursive_list = []
-new_string = ' '
+    print(combine(3, sounds))
+    sentence = ' '
+    the_whole =[]
+    my_recursive_list = []
+    new_string = ' '
 
-preface = ' and sometimes he '
-for i in range(1):
-    for w_list in combine(2, sounds):
-        my_recursive_list.append(w_list)
-#my idea for this piece is to use recusion as something that can be sampled and entered into a sentence
-print('my recursive list is ', my_recursive_list)
-mrl_length = len(my_recursive_list)
-excerpt = int(mrl_length/4)
-r = mrl_length - excerpt
-r_place = int(random.random()*r)
-short_list = my_recursive_list[r_place:r_place+excerpt]
+    preface = ' and sometimes he '
+    for i in range(1):
+        for w_list in combine(2, sounds):
+            my_recursive_list.append(w_list)
+    #my idea for this piece is to use recusion as something that can be sampled and entered into a sentence
+    mrl_length = len(my_recursive_list)
+    excerpt = int(mrl_length/4)
+    r = mrl_length - excerpt
+    r_place = int(random.random()*r)
+    short_list = my_recursive_list[r_place:r_place+excerpt]
 
-for i in short_list:
-    new_string = new_string+" and ".join(i)+" and "
+    for i in short_list:
+        new_string = new_string+" and ".join(i)+" and "
 
-print(new_string)
-# print(mrl_length, excerpt, r, r_place, ' my excerpt ', my_recursive_list[r_place:r_place+excerpt])
-print('\n')
+    print(new_string)
+    # print(mrl_length, excerpt, r, r_place, ' my excerpt ', my_recursive_list[r_place:r_place+excerpt])
+    print('\n')
 
-#how can we alter just the numbers (how we are playing with i) how many elements of
-#what if you divide the i, multiply, what about a fibonacci sequence.
+    #how can we alter just the numbers (how we are playing with i) how many elements of
+    #what if you divide the i, multiply, what about a fibonacci sequence.
 
-# sentence = ('He woke up and ' + sentence[6:] + ' all day and every second of the day.')
-sentence = ('He woke up and' + new_string + 'sighed all day and every second of the day.')
+    # sentence = ('He woke up and ' + sentence[6:] + ' all day and every second of the day.')
+    sentence = ('He woke up and' + new_string + 'sighed all day and every second of the day.')
 
-the_whole.append(sentence)
-print(the_whole)
+    the_whole.append(sentence)
+    print(the_whole)
 
-#
-# def combine(i, word_list):
-#     output = []
-#     if i > 0 and len(word_list) >= i:
-#         if (i == 1):
-#             print('output2:', ' '.join(output))
-#             # output = output + [[word_list[i].split(' ')[random.randint(0, 1)]]]
-#             output = output + [[word_list[random.randint(0,i)].split(' ')[random.randint(0, 1)]]]
-#         else:
-#             # output = output + [word_list[i] + c for c in combine(i-1, word_list[1:])]
-#
-#             output = output + [[word_list[i].split(' ')[random.randint(0,1)]] + c for c in combine(i-1, word_list[1:])]
-#
-#             # output = output + [word_list[i].split(' ')[random.randint(0,1)]] + " "+[word_list[i].split(' ')[random.randint(0,1)] + combine(i-1, word_list[1:])]
-#             # output += [word_list[i].split(' ')[random.randint(0,1)]]+" "+ [word_list[i].split(' ')[random.randint(0,1)] + combine(i-1, word_list[1:])]
-#
-#             print('output: ', output)
-#
-#     # output = output + [[word_list[i].split(' ')[random.randint(0, 1)]] +  c for c in combine(i - 1, word_list[i:])]
-#     return output
+    #
+    # def combine(i, word_list):
+    #     output = []
+    #     if i > 0 and len(word_list) >= i:
+    #         if (i == 1):
+    #             print('output2:', ' '.join(output))
+    #             # output = output + [[word_list[i].split(' ')[random.randint(0, 1)]]]
+    #             output = output + [[word_list[random.randint(0,i)].split(' ')[random.randint(0, 1)]]]
+    #         else:
+    #             # output = output + [word_list[i] + c for c in combine(i-1, word_list[1:])]
+    #
+    #             output = output + [[word_list[i].split(' ')[random.randint(0,1)]] + c for c in combine(i-1, word_list[1:])]
+    #
+    #             # output = output + [word_list[i].split(' ')[random.randint(0,1)]] + " "+[word_list[i].split(' ')[random.randint(0,1)] + combine(i-1, word_list[1:])]
+    #             # output += [word_list[i].split(' ')[random.randint(0,1)]]+" "+ [word_list[i].split(' ')[random.randint(0,1)] + combine(i-1, word_list[1:])]
+    #
+    #             print('output: ', output)
+    #
+    #     # output = output + [[word_list[i].split(' ')[random.randint(0, 1)]] +  c for c in combine(i - 1, word_list[i:])]
+    #     return output
+}
