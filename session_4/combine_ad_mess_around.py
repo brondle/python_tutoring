@@ -1,5 +1,8 @@
 import random
-
+mywords = ['trounced', 'bounced', 'pounced', 'throbbed', 'sobbed', 'minced',
+          'winced', 'whistled']
+sounds = ['groaned', 'whistled', 'waivered', 'fluttered', 'coughed', 'stuttered',
+          'muttered', 'choked']
 voices = ['sang', 'cried', 'stated', 'murmured', 'babbled', 'chattered',
           'ranted', 'whispered']
 jj_nn = ['social engagement', 'institutional critique', 'activist art', 'urban life', 'everyday life', 'rigorous absurdity', 'traditional design', 'public space', 'artificial intelligence', 'biometric sensing', 'personal narrative',\
@@ -16,37 +19,50 @@ def combine(i, word_list):
         if (i == 1):
             print('output2:', ' '.join(output))
             # output = output + [[word_list[i].split(' ')[random.randint(0, 1)]]]
-            output = output + [[word_list[random.randint(0,i)].split(' ')[random.randint(0, 1)]]]
-
-
+            # output = output + [[word_list[random.randint(0,i)].split(' ')[random.randint(0, 1)]]]
+            r_list_choice2 = int(len(word_list) * random.random())
+            # output = output + [word_list[r_list_choice2].split(' ')]
+            output = output + [word_list[i].split()]
         else:
-            output += [word_list[i].split(' ')[random.randint(0,1)]]+" "+ [word_list[i].split(' ')[random.randint(0,1)] + combine(i-1, word_list[1:])]
+            output = output + [[word_list[i]] + c for c in combine(i-1, word_list[1:])]
+            print("i is ", i)
+            #error fix from class: you need to make the string into an array so it is the same as a list or it will throw an error
+            #the error was coming because the list comprehension was returning a list but the word_list[i] is a string
+            # output = output + [[word_list[i].split(' ')[random.randint(0,1)]] + c for c in combine(i-1, word_list[1:])]
+            # r_list_choice = int(len(word_list)*random.random())
+            # output = output + [word_list[r_list_choice].split() + c for c in combine(i-1, word_list[1:])]
+
+            # output = output + [word_list[i].split(' ')[random.randint(0,1)]] + " "+[word_list[i].split(' ')[random.randint(0,1)] + combine(i-1, word_list[1:])]
+            # output += [word_list[i].split(' ')[random.randint(0,1)]]+" "+ [word_list[i].split(' ')[random.randint(0,1)] + combine(i-1, word_list[1:])]
+
             print('output: ', output)
-            # output = output + [[word_list[random.randint(0,i)].split(' ')[random.randint(0, 1)]] + c for c in combine(random.randint(1,i), word_list[random.randint(0, 1):])]
 
     # output = output + [[word_list[i].split(' ')[random.randint(0, 1)]] +  c for c in combine(i - 1, word_list[i:])]
     return output
 
 
-print(combine(5, i_verb))
+print(combine(6, jj_nn))
+
+sentence = ' '
+the_whole =[]
+preface = ' and '
+new_string = ' '
+
+for i in range(1):
+    for w_list in combine(6, jj_nn):
+        print('w_list i is ', w_list[i])
+        new_string = new_string+' '.join(w_list)
+print('new string is ', new_string)
+
+for i in range(1):
+    for w_list in combine(6, jj_nn):
+        sentence = sentence + preface + ' '.join(w_list)+','
+
+print('\n')
 #how can we alter just the numbers (how we are playing with i) how many elements of
-#what if you divide the i, multiply, what about a fibonacci sequence. just as much as the output is a work of art
+#what if you divide the i, multiply, what about a fibonacci sequence.
 
-
-def combine(num, words):
-    final = []
-    if num > 0 and len(words) >= num:
-        print ('num: ', num)
-        if num == 1:
-            final = final + [[words[0]]]
-            print ('final in if statement', final)
-        else:#the double array/list places in a subarray, it concatenates it to a list
-            final = final + [[words[0]] +
-                    c for c in combine(num - 1, words[1:])]
-            # for c in combine(num - 1, words[1:]):  
-            #     print(‘c: ‘, c) 
-
-            print('final in else statement', final) #the line above builds a single array each time it is run,
-            # in other other words the internal array builds one and the one below builds the whole.
-        final = final + combine(num, words[1:])#this one builds the array of arrays. in the program flow,
-    return final
+the_combos = ' '
+sentence = ('I am an artist who explores' + new_string + ' to create a transcendant experience in the viewer/listener.')
+the_whole.append(sentence)
+print(the_whole)
