@@ -44,15 +44,25 @@ def fibo_words():
 fibo = fibo_words()
 print('\n')
 
+a = ' '
+b = ' '
 
 def fibo_one_word_list():
     a, b = '', ''
     for i in range(it-1):
+<<<<<<< HEAD
 #        yield a, b
         a, b =  words[i+1], words[i] + " " + words[i+1]
+=======
+        yield a, b
+        a, b = words[i+1], words[i] + " " + words[i+1]
+
+>>>>>>> 214bc269f33678c8e48bf60030b6050799c125cc
         print(a, b)
         # return a, b
+
 fibo = fibo_one_word_list()
+
 print('\n')
 y = ''
 z = ''
