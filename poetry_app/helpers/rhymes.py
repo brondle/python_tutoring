@@ -31,12 +31,17 @@ def gen_rhyme_pair(rhyme_list):
     n2 = ' '.join(rhyme_list[r2])
     return (n1 + '\n' + n2)
 
+def gen_one_phone(rhyme_list):
+    r1 = random.randint(0, len(rhyme_list)-1)
+    n1 = ' '.join(rhyme_list[r1])
+    return (n1)
 
 phoneBeg = 1
 phoneBeg2 = 2
 matchPh = ['DH', 'AH0']
 # allit_list = []
 def find_alliteration(sentence, outputlist):
+    #this function returns a list of two word strings
     for i in range(len(sentence)):
         this_s = sentence[i].split()
         for j in range(len(this_s)-1):
@@ -56,10 +61,24 @@ def find_alliteration(sentence, outputlist):
                 # finds alliteration for words greater than three letters long
                 if pho == next_pho and len(word)>3 and len(word2)>3:
                     location = j
-                    a_phrase = word, word2
-                    print(word, word2)
+                    # a_phrase = word, word2
+                    a_phrase = word +" " + word2
+                    # print(word, word2)
                     outputlist.append(a_phrase)
     return outputlist
+
+
+def convert_lowercase(text):
+    return [word.lower() for word in text]
+
+# remove punctuation from the string
+def remove_punctuation(text):
+    exclude = set(string.punctuation)
+    keep_these_punct = ['/', '%', '-']
+    for punct in keep_these_punct:
+        exclude.remove(punct)
+    converted_text = ''.join(ch for ch in text if ch not in exclude)
+    return converted_text
 
 #choose a pair and convert it from a tuple to string
 # my_tuple = gen_rhyme_pair()
@@ -67,3 +86,6 @@ def find_alliteration(sentence, outputlist):
 # my2 = ' '.join(my_tuple[1])
 # print(my1)
 # print(my2)
+
+def gen_rando():
+    return random.random()
