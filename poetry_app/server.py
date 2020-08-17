@@ -109,6 +109,17 @@ def fibo():
     # my_poem = run_fibo()
     return render_template('simple.html', words=phrase)
 
+def getFibonnaciSeries(num):
+    c1, c2 = 0, 1
+    count = 0
+    while count < num:
+        yield c1
+        c3 = c1 + c2
+        c1 = c2
+        c2 = c3
+        count += 1
+
+fin = getFibonnaciSeries(7)
 
 if __name__ == '__main__':
   app.run()
