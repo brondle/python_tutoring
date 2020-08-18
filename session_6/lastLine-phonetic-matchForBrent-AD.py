@@ -12,8 +12,10 @@ colorsText = corpus.raw('lastLines.txt')
 
 cWord = colorsText.splitlines()
 cWord2 = colorsText.splitlines()
-prondict = nltk.corpus.cmudict.dict()
 
+
+
+# thisSound = [['K'], ['S']]
 
 #vowels
 thisSound = [['AA0'], ['AA1'], ['AA2'], ['AE0'], ['AE1'], ['AE2'], ['AH0'], ['AH1'], ['AH2'], ['AO0'], ['AO1'], ['AO2'],
@@ -28,7 +30,16 @@ thisSound2 = [['AA0'], ['AA1'], ['AA2'], ['AE0'], ['AE1'], ['AE2'], ['AH0'], ['A
              ['IX2'], ['IY0'], ['IY1'], ['IY2'], ['OW0'], ['OW1'], ['OW2'], ['OY0'], ['OY1'], ['OY2'], ['UH0'], ['UH1'],
              ['UH2'], ['UW0'], ['UW1'], ['UW2'], ['UX0'], ['UX1'], ['UX2']]
 
-
+#consonants
+# thisSound = [['NG'],  ['SH'], ['B'], ['CH'], ['D'], ['DH'],
+#               ['DX'], ['EL'], ['EM'], ['EN'], ['F'], ['G'], ['HH'], ['JH'], ['K'], ['L'], ['M'], ['N'],
+#               ['NX'], ['NG'], ['P'], ['Q'], ['R'], ['S'], ['SH'], ['T'], ['TH'], ['V'], ['W'], ['WH'], ['Y'], ['Z'],
+#               ['ZH']]
+#
+# thisSound2 = [['NG'],  ['SH'], ['B'], ['CH'], ['D'], ['DH'],
+#               ['DX'], ['EL'], ['EM'], ['EN'], ['F'], ['G'], ['HH'], ['JH'], ['K'], ['L'], ['M'], ['N'],
+#               ['NX'], ['NG'], ['P'], ['Q'], ['R'], ['S'], ['SH'], ['T'], ['TH'], ['V'], ['W'], ['WH'], ['Y'], ['Z'],
+#               ['ZH']]
 
 #how many phones?
 #if the syllables are at the end of the word you need a negative number

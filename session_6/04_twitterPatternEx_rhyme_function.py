@@ -19,7 +19,10 @@ engine = Twitter(language="en")
 prev = None
 
 word = 'beat'
+<<<<<<< HEAD
 count = 0
+=======
+>>>>>>> af6d442a1107190e4c7cfcdde773c6714dbe5ce0
 tweet_index = []
 
 def send_text():
@@ -31,18 +34,30 @@ def search_replace(word):
         for tweet in engine.search(search_term, start=prev, count=1, cached=False):
             if tweet.id not in tweet_index:
                 tweet_index.append(tweet.id)
+<<<<<<< HEAD
                 global count
+=======
+                # global count
+>>>>>>> af6d442a1107190e4c7cfcdde773c6714dbe5ce0
                 t = tweet.text
                 src_str = tweet.text
                 rhymes = pronouncing.rhymes(search_term)
                 rhyme_choice = random.choice(rhymes)
                 str_replaced = src_str.replace(search_term, rhyme_choice)
+<<<<<<< HEAD
 
                 formatted = src_str + '\n' + str_replaced
 
                 if count > 4:
                     r.stop()
                 count += 1
+=======
+                formatted = src_str + '\n' + str_replaced
+
+                if len(tweet_index)>4:
+                    r.stop()
+
+>>>>>>> af6d442a1107190e4c7cfcdde773c6714dbe5ce0
                 return formatted
 
 
