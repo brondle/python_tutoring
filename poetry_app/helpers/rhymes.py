@@ -19,14 +19,13 @@ def refactored_find_phonemes(num, ph_list, sentences):
             #why are we checking "isalpha?"
             if word in prondict:
                 syl = prondict[word]
-                print('syl: ', syl)
                 pho = syl[-1][num:]
+                location = j
+                phrase = sent[location-3:location+1]
                 # if pho == ph_list then it's definitely longer than 1, so we don't need to check that
-                #same with j-num, presumably - j is always going to be part of the existing array
-                if pho == ph_list and len(word)>3:
-                    location = j
-                    phrase = sent[location-3:location+1]
+                if pho == ph_list and len(word)>3 and len(phrase)>0:
                     print('pho: ', pho)
+                    print('phrase: ', phrase)
                     output.append(phrase)
     return output
 

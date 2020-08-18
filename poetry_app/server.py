@@ -56,7 +56,7 @@ def allit():
     for i in range(len(allit_list)):
         n = int(random.random() * len(allit_list))
         my_phrase = allit_list[n]
-        s = ' '.join(my_phrase)
+        s = ''.join(my_phrase)
         print(s)
     return s
 
@@ -71,7 +71,7 @@ def test2():
     for i in range(len(allit_list)):
         n = int(random.random() * len(allit_list))
         my_phrase = allit_list[n]
-        s = ' '.join(my_phrase)
+        s = ''.join(my_phrase)
         print(s)
     # greeting = random.choice(greets) + ", " + random.choice(places)
     return render_template("simple.html",
@@ -87,27 +87,15 @@ def phone():
     this_phone = gen_one_phone(rhyme_list)
     return render_template("simple.html", words =this_phone)
 #not sure why text is centered in the html
+
 fibo_list = [0, 1, 1, 2, 3, 5, 8]
+
 def fibo_series():
     phr = gen_one_phone(rhyme_list)
     # convert_lowercase(phr)
     # rp = remove_punctuation(phr)
     # convert_lowercase(rp)
     print(phr)
-
-def run_fibo():
-    for i in fibo_list:
-        print('\n')
-        for j in range(i):
-            phrase = fibo_series()
-@app.route('/fibo')
-def fibo():
-    for i in fibo_list:
-        print('\n')
-        for j in range(i):
-            phrase = fibo_series()
-    # my_poem = run_fibo()
-    return render_template('simple.html', words=phrase)
 
 def getFibonnaciSeries(num):
     c1, c2 = 0, 1
@@ -120,6 +108,21 @@ def getFibonnaciSeries(num):
         count += 1
 
 fin = getFibonnaciSeries(7)
+
+def run_fibo():
+    for i in fin:
+        print('\n')
+        for j in range(i):
+            phrase = fibo_series()
+
+@app.route('/fibo')
+def fibo():
+    for i in fin:
+        print('\n')
+        for j in range(i):
+            phrase = fibo_series()
+    # my_poem = run_fibo()
+    return render_template('simple.html', words=phrase)
 
 if __name__ == '__main__':
   app.run()
