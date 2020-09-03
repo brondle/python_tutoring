@@ -3,7 +3,7 @@ import random
 import sys
 import nltk
 # from rhymes import find_alliteration, find_phonemes, gen_rhyme_pair
-from helpers.rhymes import find_alliteration, find_phonemes, gen_rhyme_pair, gen_rando, gen_one_phone
+from helpers.rhymes import find_alliteration, find_phonemes, gen_rhyme_pair, gen_rando, gen_one_phone, convert_lowercase
 from helpers.this_helper import gen_random_num
 from nltk.tokenize import WhitespaceTokenizer, sent_tokenize
 # sys.path.append('/Users/ademirji/PycharmProjects/NaturalLangage/Tuesdays/python_tutoring/poetry_app/helpers/')
@@ -91,11 +91,16 @@ def phone():
 fibo_list = [0, 1, 1, 2, 3, 5, 8]
 
 def fibo_series():
-    phr = gen_one_phone(rhyme_list)
-    # convert_lowercase(phr)
+#    phr = gen_one_phone(rhyme_list)
+    phr = 'AAAAA'
+    convert_lowercase(phr)
+    print('phr: ', phr)
+    phr = convert_lowercase(phr)
+    print('phr: ', phr)
     # rp = remove_punctuation(phr)
     # convert_lowercase(rp)
     print(phr)
+print('fibo series: ', fibo_series())
 
 def getFibonnaciSeries(num):
     c1, c2 = 0, 1
