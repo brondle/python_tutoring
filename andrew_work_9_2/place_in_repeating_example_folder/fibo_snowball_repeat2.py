@@ -88,42 +88,46 @@ def run_ps():
 def ps(ind, arr):
     for i in range(ind):
         ps.phrase = ''
-        phrase = find_phonemes_ngram(-2, ['AH0', 'N'], sentence, arr[i] - 1)
+        phrase = find_phonemes_ngram(-2, ['AH0', 'N'], sentence, arr[i])
         rn = int(random.random()*len(phrase)-1)
         str_phrase = ' '.join(phrase[rn])
         ps.phrase = ps.phrase + str_phrase+" "
         yield ps.phrase
 
 ps.phrase = ''
-
+#the ind argument is the number of index items before repeating
+#arr is the list of items the fibonacci list
 
 fibo_list = [1, 1, 2, 3, 5, 8]
 fibo_list2 =[1, 1, 2, 3]
 
-def run_ps():
-    for i in fibo_list:
-        this_text = ps(i)
-        yield this_text
-
-#def sequential():
-#    next(the_phrases)
-#    print()
-#    sequential.count += 1
-#    if sequential.count > 5:
-#        repeat_text.stop()
-
-#sequential.count = 0
-#repeat_text = repeating.Repeat(1, sequential)
-#repeat_text.start()
-
-#I was trying to get the sequence to loop and ran out of steam
-#        print("i is ", i, "fibo list len is ", len(fibo_list))
-while True:
-    for j in (ps(6, fibo_list)):
-        print(j)
-        time.sleep(1)
+# while True:
+#     for j in (ps(5, fibo_list)):
+#         print(j)
+#         time.sleep(1)
         # print()
     # the_phrases = run_ps2()
+
+#Sept 3rd work with Brent
+
+def ps_big(ind, arr):
+    for i in range(ind):
+        for j in range(i):
+            ps_big.phrase = ''
+            phrase = find_phonemes_ngram(-2, ['AH0', 'N'], sentence, arr[i])
+            rn = int(random.random()*len(phrase)-1)
+            str_phrase = ' '.join(phrase[rn])
+            ps_big.phrase = ps_big.phrase + str_phrase+" "
+            yield ps_big.phrase
+ps_big.phrase = ''
+
+while True:
+    for j in (ps_big(5, fibo_list)):
+        print(j)
+        time.sleep(1)
+
+
+
 #
 # def sequential2():
 #     next(the_phrases)
