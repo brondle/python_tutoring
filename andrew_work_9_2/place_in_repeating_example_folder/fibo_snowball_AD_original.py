@@ -35,22 +35,32 @@ ph = FP.phonemeList_ngram(-2, ['AH0', 'N'], sentence, 3)
 poem = ''
 
 def ps(fib):
-    for i in range(fib):
-        ps.phrase = ''
-        phrase = find_phonemes_ngram(-2, ['AH0', 'N'], sentence, i)
-        rn = int(random.random()*len(phrase)-1)
-        str_phrase = ' '.join(phrase[rn])
-        ps.phrase = ps.phrase + str_phrase+" "
-        print(ps.phrase)
+    for i in fib:
+        time.sleep(2)
+        for j in range(i):
+            print('j: ', j)
+            ps.phrase = ''
+            phrase = find_phonemes_ngram(-2, ['AH0', 'N'], sentence, i-1)
+            rn = int(random.random()*len(phrase)-1)
+            str_phrase = ' '.join(phrase[rn])
+            ps.phrase = ps.phrase + str_phrase+" "
+            # we want to print i amount of times
+            print(ps.phrase)
 
 ps.phrase = ''
 
 fibo_list = [0, 1, 1, 2, 3, 5, 8]
 fibo_list2 =[0,1, 1, 2, 3]
 
+# first: print a poem, where each line has a number of words corresponding to the fibonnaci sequence
+
+#second: double that, so that the number of lines reflects our place in the fibonaccis sequence
+
 def run_ps():
-    for i in fibo_list:
-        ps(i)
-        print()
+    #if we want to loop it N times
+    for i in range(100):
+    ps(fibo_list)
+    #sleep in between runs
+    print()
 
 run_ps()
