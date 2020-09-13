@@ -25,15 +25,6 @@ num = -2
 phonemes = ['AH0', 'N']
 
 
-g = FP.phonemeList(num, phonemes, sentence)
-z = refactored_find_phonemes(num, phonemes, sentence)
-# print(z[50])
-
-z = find_phonemes_ngram(-2, ['AH0', 'N'], sentence, 5)
-ph = FP.phonemeList_ngram(-2, ['AH0', 'N'], sentence, 3)
-
-poem = ''
-
 def ps(fib):
     for i in range(fib):
         ps.phrase = ''

@@ -18,7 +18,7 @@ num = -2
 phonemes = ['AH0', 'N']
 # the arguments for find_phonemes_ngram are: the number of phonemes from the end, which phonemes, what string, how many words prior
 
-# NEVER DECLARE THE SAME FUNCTION TWICE
+
 def ps(ind, arr):
     for i in range(ind):
         ps.phrase = ''
@@ -36,13 +36,38 @@ ps.phrase = ''
 fibo_list = [1, 1, 2, 3, 5, 8]
 fibo_list2 =[1, 1, 2, 3]
 
-while True:
-    for j in (ps(5, fibo_list)):
-        print(j)
-        time.sleep(2)
-        print()
+# while True:
+#     for j in (ps(5, fibo_list)):
+#         print(j)
+#         time.sleep(2)
+#         print()
 
 
+def psad(fib):
+    for i in fib:
+        print('i is ',i)
+
+        for j in range(i):
+            psad.phrase = ''
+            print( "j is ", j)
+            phrase = find_phonemes_ngram(-2, ['AH0', 'N'], sentence, i-1)
+            rn = int(random.random()*len(phrase)-1)
+            str_phrase = ' '.join(phrase[rn])
+            psad.phrase = psad.phrase + str_phrase+" "
+            yield psad.phrase
+            time.sleep(1)
+
+psad.phrase = ''
+
+# print(next(psad(fibo_list)))
+
+
+
+
+
+
+
+#---------------------
 #Sept 3rd work with Brent
 def ps_big(ind, arr):
     for i in range(ind):
