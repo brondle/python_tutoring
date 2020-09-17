@@ -99,9 +99,9 @@ def find_alliteration(sentence, outputlist):
                     outputlist.append(a_phrase)
     return outputlist
 
-
-def convert_lowercase(text):
-    return word.lower() for word in text
+#
+# def convert_lowercase(text):
+#     return word.lower() for word in text
 
 # remove punctuation from the string
 def remove_punctuation(text):

@@ -6,13 +6,11 @@ from fp import refactored_find_phonemes, find_phonemes_ngram
 # from repeating import *
 import repeating
 import time
-
 import nltk
 import random
 from nltk.tokenize import WhitespaceTokenizer, sent_tokenize
 import re
 prondict = nltk.corpus.cmudict.dict()
-
 from nltk.tokenize import WhitespaceTokenizer, sent_tokenize
 z = nltk.corpus.gutenberg.fileids()
 f = open('artistStatements.txt')
@@ -20,10 +18,21 @@ raw2 = f.read()
 sentence = sent_tokenize(raw2)
 num = -2
 phonemes = ['AH0', 'N']
-
-
+g = FP.phonemeList(num, phonemes, sentence)
+z = refactored_find_phonemes(num, phonemes, sentence)
+# print(z[50])
+z = find_phonemes_ngram(-2, ['AH0', 'N'], sentence, 5)
+ph = FP.phonemeList_ngram(-2, ['AH0', 'N'], sentence, 3)
+poem = ''
 
 def ps(fib):
+    for i in range(fib):
+        ps.phrase = ''
+        phrase = find_phonemes_ngram(-2, ['AH0', 'N'], sentence, i)
+        rn = int(random.random()*len(phrase)-1)
+        str_phrase = ' '.join(phrase[rn])
+        ps.phrase = ps.phrase + str_phrase+" "
+        print(ps.phrase)
     for i in fib:
         time.sleep(2)
         for j in range(i):
@@ -46,6 +55,9 @@ fibo_list2 =[0,1, 1, 2, 3]
 #second: double that, so that the number of lines reflects our place in the fibonaccis sequence
 
 def run_ps():
+    for i in fibo_list:
+        ps(i)
+        print()
     #if we want to loop it N times
     for i in range(100):
         ps(fibo_list)
