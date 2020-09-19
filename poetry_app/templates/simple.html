@@ -13,6 +13,11 @@
 <body>
 <!--   <h1>I am Greet-O-Tron 2K15. I have prepared for you this greeting.</h1>
   <h3>{{ greet }}, {{ place }}</h3> -->
-  <p>{{words}}</p>
+  <p>
+  {% autoescape false %} 
+  {{words}}
+  {% endautoescape %}
+
+</p>
 </body>
 </html>

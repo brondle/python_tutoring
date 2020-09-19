@@ -101,30 +101,32 @@ fibo_list2 =[0,1, 1, 2, 3, 5]
 new_list = [1, 1, 2, 3, 5, 8]
 
 def ps_simple(fib):
+    ps_simple.phrase = ''
     for i in range(fib):
-        ps_simple.phrase = ''
+
         phrase = find_phonemes_ngram(-2, ['AH0', 'N'], sentence, i)
         rn = int(random.random()*len(phrase)-1)
         str_phrase = ' '.join(phrase[rn])
-        ps_simple.phrase = ps_simple.phrase + str_phrase+" "
+        ps_simple.phrase = ps_simple.phrase + str_phrase+" "+'<br/>'
         # print(ps.phrase)
-    return ps_simple.phrase
+        yield ps_simple.phrase
 ps_simple.phrase = ''
 # ps(5)
 
 def run_simple():
-    for i in fibo_list:
-        z = ps_simple(i)
-        time.sleep(1)
-    return z
+    # print(run_simple.x)
+    x = next(run_simple.x, 'end')
+    if (x) == 'end':
+        run_simple.x = ps_simple(5)
+        return next(run_simple.x)
+    else:
+        return x
+
+run_simple.x = ps_simple(5)
 
 @app.route('/fibo_phone')
 def fibo_phone():
-    # my_variable = ps(5)
     my_variable = run_simple()
-    # for i in range(3):
-    #     my_variable = ps_simple(5)
-    #     time.sleep(2)
     return render_template("simple.html", words =my_variable)
 
 def ps(fib):
