@@ -3,8 +3,8 @@ $("document").ready(function(){
         	// url: 'http://example.com/refresh.php',
   url:"http://localhost:5000/api/",
   type: "POST",
-  data: {myNumber: Math.random(), 
-  }, 
+  data: {myNumber: Math.random(),
+  },
   success: function(data) {
       $('#container').html(data).delay(2000);
   }
