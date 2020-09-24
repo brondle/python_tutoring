@@ -133,7 +133,6 @@ def rph(num, ph_list, sentences):
                     phrase_string = list_to_str(phrase)
                     string_output.append(phrase_string)
 
-
     return list_output, string_output
 
 def find_phonemes_ngram(num, ph_list, sentences,ngrm):
@@ -230,7 +229,7 @@ my_sentences2 = ["I'm on The mission to mars and beyond.", "It is clear the view
 # this_thing = ret_no_punct_string(my_sentences2[0])
 # print(this_thing)
 
-my_string = ph_ngram_str_punct(-2, phonemes, my_sentences, 3)
-list_nopunct = ph_ngram_list_punct(-2, phonemes, my_sentences, 3)
-print(my_string)
-print(list_nopunct)
+# my_string = ph_ngram_str_punct(-2, phonemes, my_sentences, 3)
+# list_nopunct = ph_ngram_list_punct(-2, phonemes, my_sentences, 3)
+# print(my_string)
+# print(list_nopunct)

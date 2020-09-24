@@ -54,14 +54,14 @@ fibo_list2 =[0,1, 1, 2, 3]
 
 #second: double that, so that the number of lines reflects our place in the fibonaccis sequence
 
-def run_ps():
-    for i in fibo_list:
-        ps(i)
-        print()
-    #if we want to loop it N times
-    for i in range(100):
-        ps(fibo_list)
-        #sleep in between runs
-        print()
+# def run_ps():
+#     # for i in fibo_list:
+#     #     ps(i)
+#     #     print()
+#     #if we want to loop it N times
+#     for i in range(100):
+#         ps(fibo_list)
+#         #sleep in between runs
+#         print()
 
 run_ps()
