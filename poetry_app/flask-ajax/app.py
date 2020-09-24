@@ -7,11 +7,10 @@ import time
 
 app = Flask(__name__)
 
-@app.route('/api/', methods=["POST"])
+@app.route('/api/', methods=["GET"])
 def main_interface():
-    response = request.get_json()
-    print(response)
-    return jsonify(response)
+    print('getting a request')
+    return jsonify('we have text now')
 
 @app.after_request
 def add_headers(response):
