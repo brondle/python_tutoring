@@ -4,7 +4,7 @@ import sys
 import nltk
 import time
 import fp
-# from fp import r_punct_list
+from fp import r_punct_list
 # from rhymes import find_alliteration, find_phonemes, gen_rhyme_pair
 from helpers.rhymes import find_alliteration, find_phonemes, gen_rhyme_pair, gen_rando, gen_one_phone
 from helpers.this_helper import gen_random_num
@@ -136,27 +136,29 @@ def ps(fib):
         rn = int(random.random()*len(phrase)-1)
         str_phrase = ' '.join(phrase[rn])
         ps.phrase = ps.phrase + str_phrase+" "
-    for i in fib:
         dur = 1
-        if i > 2:
-            dur = 4
-        elif i > 3:
-            dur = 5
-        else:
+    for i in fib:
+        dur = dur * 1.25
+        if i < 1:
             dur = 1
-        time.sleep(dur)
         print()
         for j in range(i):
             ps.phrase = ''
             phrase = find_phonemes_ngram(-2, ['AH0', 'N'], sentence, i-1)
             rn = int(random.random()*len(phrase)-1)
-            # no_punct_phrase = r_punct_list(phrase[rn])
-            str_phrase = ' '.join(phrase[rn])
-            # str_phrase = ' '.join(no_punct_phrase)
+            no_punct_phrase = r_punct_list(phrase[rn])
+            str_phrase = ' '.join(no_punct_phrase)
             ps.phrase = ps.phrase + str_phrase+" "
-            # print(ps.phrase)
-            return ps.phrase
+            print(ps.phrase)
+        time.sleep(dur)
+
 ps.phrase = ''
+
+#
+# def run_ps_old_dont_use():
+#     for i in range(3):
+#         neo = ps(fibo_list2)
+#         return neo
 
 def run_ps():
     # for i in fibo_list:
@@ -164,11 +166,11 @@ def run_ps():
     #     print()
     #if we want to loop it N times
     for i in range(3):
-        neo = ps(fibo_list2)
+        ps(fibo_list2)
         # print('this is the run_ps four second pause')
-        # time.sleep(4)
-        return neo
+        time.sleep(4)
 
+#this one is currently not working
 @app.route('/fibo_phone2')
 def fibo_phone2():
     # my_variable = ps(5)

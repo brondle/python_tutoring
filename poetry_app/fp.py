@@ -109,10 +109,94 @@ def find_phonemes_ngram(num, ph_list, sentences,ngrm):
     return output
 
 
+
+def remove_punctuation(w):
+    word = re.sub(r'[^\w\s]', '', w.lower())
+    return word
+
+def r_punct_list(w):
+    output = []
+    for i in range(len(w)):
+        word = re.sub(r'[^\w\s]', '', w[i].lower())
+        output.append(word)
+    return output
+
+def list_to_str(input_seq):
+   # Join all the strings in list
+   final_str = ' '.join(input_seq)
+   return final_str
+
+def list_to_str_nospace(input_seq):
+   # Join all the strings in list
+   final_str = ''.join(input_seq)
+   return final_str
+
+def ret_no_punct_string(w):
+    print('w is ', w)
+    phrase = r_punct_list(w)
+        # print('the phrase is ', phrase)
+        # phrase_list.append(phrase)
+    phrase_string = list_to_str_nospace(phrase)
+    return phrase_string
+
+
+def ph_ngram_list_punct(num, ph_list, sentences, ngram):
+    list_output = []
+    for i in sentences:
+        sent = i.split()
+        for j in range(len(sent)):
+            if sent[j] in prondict:
+                syl = prondict[sent[j]]
+                pho = syl[-1][num:]
+                phrase = sent[j-ngram:j+1]
+                if pho == ph_list and len(sent[j])>3 and len(phrase)>0:
+                    phrase = r_punct_list(phrase)
+                    list_output.append(phrase)
+                    # phrase_string = list_to_str(phrase)
+                    # string_output.append(phrase_string)
+
+
+    return list_output
+
+def ph_ngram_str_punct(num, ph_list, sentences, ngram):
+    string_output, list_output = [], []
+    for i in sentences:
+        sent = i.split()
+        for j in range(len(sent)):
+            if sent[j] in prondict:
+                syl = prondict[sent[j]]
+                pho = syl[-1][num:]
+                phrase = sent[j-ngram:j+1]
+                if pho == ph_list and len(sent[j])>3 and len(phrase)>0:
+                    phrase = r_punct_list(phrase)
+                    list_output.append(phrase)
+                    phrase_string = list_to_str(phrase)
+                    string_output.append(phrase_string)
+
+
+    return string_output
+
+#AD sept. 12th refactoring the refactored find phonemes
+def rph(num, ph_list, sentences):
+    list_output, string_output = [], []
+    for i in sentences:
+        sent = i.split()
+        for j in range(len(sent)):
+            if sent[j] in prondict:
+                syl = prondict[sent[j]]
+                pho = syl[-1][num:]
+                phrase = sent[j-3:j+1]
+                if pho == ph_list and len(sent[j])>3 and len(phrase)>0:
+                    phrase = r_punct_list(phrase)
+                    list_output.append(phrase)
+                    phrase_string = list_to_str(phrase)
+                    string_output.append(phrase_string)
+
+    return list_output, string_output
 # print(type(Find_Phoneme))
 # g = FP.phonemeList(-2, ['AH0', 'N'], sentence)
-z = find_phonemes_ngram(-2, ['AH0', 'N'], sentence, 5)
-ph = FP.phonemeList_ngram(-2, ['AH0', 'N'], sentence, 3)
+# z = find_phonemes_ngram(-2, ['AH0', 'N'], sentence, 5)
+# ph = FP.phonemeList_ngram(-2, ['AH0', 'N'], sentence, 3)
 
 # print(ph[20])
 # print(z[1], '\n')
