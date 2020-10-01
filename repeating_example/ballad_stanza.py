@@ -39,6 +39,7 @@ condc = [3,4]
 
 def ballad_stanza(counter):
     # print("counter is ", counter)
+    print('counter: ', counter)
     if counter in conda:
     # if counter == 0 or 1: #why didn't this combo of if/elif work? it just kept going with the first condition
     #     print('we are in cond1 ')
@@ -48,9 +49,12 @@ def ballad_stanza(counter):
         no_punct_phrase = r_punct_list(phrase[rn])
         str_phrase = ' '.join(phrase[rn])
         print(str_phrase)
-    if counter in condb:
-    # elif counter == 2 or 5:
+    # if counter in condb:
+    elif counter == 2 or 5:
     #     print('we are in cond2 ')
+    # 2 or 5 will always evaluate to 2 - we're not comparing true or false values there, it's just going to give the first value because it "exists" according to the code
+    # we have to separate out the evaluations, like counter == 2 or counter == 5 (the best way to do this is with a tuple> if counter in (2, 5))
+        print('what now', (2 or 5))
         ballad_stanza.phrase2 = ''
         phrase2 = find_phonemes_ngram(-2, phon_b, sentence, 4)
         rn2 = int(random.random() * len(phrase2) - 1)
@@ -87,6 +91,8 @@ def run_ballad(c):
 # run_ballad(c)
 
 #if you wanted their to be a line break every three lines, how would you do it?
+
+#something like if line_count % 3 == 0 (this checks if it is divisible by 3)
 
 def run_ballad_stanza(count):
     while count < 6:

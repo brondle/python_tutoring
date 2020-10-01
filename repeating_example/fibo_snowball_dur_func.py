@@ -21,16 +21,23 @@ num = -2
 phonemes = ['AH0', 'N']
 
 def ps(fib, dur, tmgr):
+    # this is going to do it once for each item in the fibonacci sequence
+    # if we want to do it N times, we have to pass it N instead of the fibonnaci
     for i in range(len(fib)):
         ps.phrase = ''
         phrase = find_phonemes_ngram(-2, ['AH0', 'N'], sentence, i)
         rn = int(random.random()*len(phrase)-1)
         str_phrase = ' '.join(phrase[rn])
         ps.phrase = ps.phrase + str_phrase+" "
+        print ('second level iteration ', i)
         ps2(fib, dur, tmgr, ps.phrase)
 
+#global variable to show us how many times it's iterating - do as i say, not as i do, etc
+p_counter = 0
 def ps2(fib, dur, tmgr, phrase):
+    #here it loops through fib again - so it's not going infinitely, it's just going to do it for each element in the fibonnaci sequence *again* > which means it will do it 25 times for a 5 number sequence
     for i in fib:
+        print('third level iteration: ', i)
         dur = dur * tmgr
         if i < 1:
             dur = 1
@@ -42,8 +49,11 @@ def ps2(fib, dur, tmgr, phrase):
             no_punct_phrase = r_punct_list(phrase[rn])
             str_phrase = ' '.join(no_punct_phrase)
             ps.phrase = ps.phrase + str_phrase+" "
+            global p_counter
+            print('phrase count', p_counter)
+            p_counter += 1
             print(ps.phrase)
-        time.sleep(dur)
+#        time.sleep(dur)
 
 ps.phrase = ''
 
@@ -59,8 +69,11 @@ def run_ps():
     #     print()
 
     #if we want to loop it N times
+    # this is looping ps, which already squares the length of the fibonacci sequence, N times
+    # so instead of 25, we get 75 runs
     for i in range(2):
+        print('highest level iteration', i)
         ps(fibo_list2, 1, 1.25)
-        time.sleep(4)
+#        time.sleep(4)
 #not sure why this is no longer stopping
 run_ps()
