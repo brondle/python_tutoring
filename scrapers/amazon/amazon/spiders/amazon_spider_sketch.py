@@ -1,5 +1,7 @@
 import scrapy
 #from coverbrowser.items import CoverItem
+#to run this program, cd into the directory then in the terminal write: scrapy crawl amazon -o myFileNameHere.json
+#the name of the file is the third item in the request to the terminal 'amazon' in other example it is 'text'
 
 
 class AmazonScraper(scrapy.Spider):

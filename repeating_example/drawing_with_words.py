@@ -17,7 +17,7 @@ for i in range(30):
     elif i < 21:
         z = i%10
         op = -1*(z+z)
-        this_dir = i+op
+        this_dir = i+op #is there a smarter way to do this?
         if z == 0:
             this_dir = 0
             # print('this direction is ', this_dir, 'i is ', i, 'z is ', z, 'op is ', op)
