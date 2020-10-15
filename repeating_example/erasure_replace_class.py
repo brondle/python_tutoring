@@ -18,19 +18,12 @@ class EraseWordGenerator:
         return final_str
 
     def random_l(self, length, rn):
-    # r_list = []
         num = random.sample(range(length), rn)
-        # for i in range(rn):
-            # if i not in r_list:
-            #     r_list.append(random.randint(0,length))
         return num
-
 
     def random_erase_replace(self):
         new_list = []
         list_length = len(self.list)
-        # r_choice = random.randint(0, list_length)
-        # rn = random.randint(round(list_length/4), round(list_length/2))
         min = round(list_length/2)
         max = round(list_length/1.33)
         rn = random.randint(min, max)
@@ -38,12 +31,10 @@ class EraseWordGenerator:
         print(list_length, rn, random_list)
 
         for i in range(list_length):
-            # if i == r_choice:
             if i in random_list:
                 char_length = len(self.list[i])
                 em = ' '
                 self.list[i] = self.list[i].replace(self.list[i], em*char_length)
-        # new_list.append(self.list[i])
         erased_string = self.list_to_str(self.list)
         return erased_string
 
@@ -51,7 +42,6 @@ class EraseWordGenerator:
         dont_exceed = len(sentence)-num_of_sents
         r_choice = random.randint(0, dont_exceed)
         return sentence[r_choice:r_choice+(num_of_sents)]
-
 
     def erase_words(self, all_but_n):
         sent_length = len(self.list)
@@ -70,7 +60,6 @@ class EraseWordGenerator:
                 # print(self.list[i])
         erased_string = self.list_to_str(self.list)
         return erased_string
-
 
     def erase_sentence(self, list_of_strings):
         for i in range(len(list_of_strings)):
