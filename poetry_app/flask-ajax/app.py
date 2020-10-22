@@ -15,8 +15,9 @@ def welcome():
 
 @app.route('/api/', methods=["GET"])
 def main_interface():
+    #This is where we'd want to put our text-generating code
     print('getting a request')
-    return jsonify('we have text now')
+    return jsonify('we have text now' * random.randrange(1, 10))
 
 @app.after_request
 def add_headers(response):
