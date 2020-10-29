@@ -10,6 +10,7 @@ from helpers.rhymes import find_alliteration, find_phonemes, gen_rhyme_pair, gen
 from helpers.this_helper import gen_random_num
 from nltk.tokenize import WhitespaceTokenizer, sent_tokenize
 from helpers.fp import find_phonemes_ngram
+from erasure_function import erase_words, erase_sentence, random_l, list_to_str, seq_of_sents
 # sys.path.append('/Users/ademirji/PycharmProjects/NaturalLangage/Tuesdays/python_tutoring/poetry_app/helpers/')
 # h_dir = '/Users/ademirji/PycharmProjects/NaturalLangage/Tuesdays/python_tutoring/poetry_app/helpers'
 # h_dir ='./helpers'
@@ -32,6 +33,7 @@ a = find_phonemes(phoneNum, phonemes, sentence, rhyme_list)
 one_phone = gen_one_phone(rhyme_list)
 find_alliteration(sentence, allit_list)
 # print(allit_list)
+
 s = ' '
 for i in range(len(allit_list)):
     n = int(random.random()*len(allit_list))
@@ -90,11 +92,20 @@ my_string = 'this is going to be the best day of my life'
 def print_to_web():
     return render_template("simple.html",words =my_string )
 
+this_ch = 'oh mu my my my my save yes'
+@app.route('/erase')
+def erase():
+    num = 20
+    this_choice = seq_of_sents(sentence, num)
+
+    # s = erase_sentence(this_choice)
+    return render_template("simple.html", words=this_choice[0])
+
 @app.route('/phone')
 def phone():
     this_phone = gen_one_phone(rhyme_list)
-    return render_template("simple.html", words =this_phone)
-#not sure why text is centered in the html
+    return render_template("simple.html",
+                           words =this_ch)
 
 fibo_list = [0, 1, 1, 2, 3, 5, 8]
 fibo_list2 =[0,1, 1, 2, 3, 5]
