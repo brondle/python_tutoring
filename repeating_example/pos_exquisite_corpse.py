@@ -14,6 +14,16 @@ s = nltk.word_tokenize(sent)
 # print('this is the sentence ', s)
 tagged = nltk.pos_tag(s)
 # print(tagged)
+pos_db = {
+    'NN': [],
+    'NP': []
+    #so on and so forth
+}
+
+for key in pos_db:
+    # if word is tagged as key, add to pos_db[key]
+#if we wanted keys and values:
+for key, value in pos_db.items():
 
 #this shows how to tokenize and tag a sentence from a text file like a novel
 word_toke = nltk.word_tokenize(sentence[0])#the [0] here means, use the first sentence
