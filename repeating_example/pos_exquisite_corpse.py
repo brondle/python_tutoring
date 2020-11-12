@@ -54,16 +54,16 @@ make_lists() #call the make_lists function to get the lists ready
 print('\n'*3)#put some blank space above the output
 
 def gen_exquisite():
-    print(r(art_list), r(adj_list), r(n_list),r(v_list), r(art_list), r(adj_list), r(n_list))
-    # print("The", r(adj_list), r(n_list), r(v_list), 'a', r(adj_list), r(n_list))
+    # print(r(art_list), r(adj_list), r(n_list),r(v_list), r(art_list), r(adj_list), r(n_list))
+    print("The", r(adj_list), r(n_list), r(v_list), 'a', r(adj_list), r(n_list))
 
 #print one exquisite corpse
 gen_exquisite()
 
 #print 1000 lines of text (change the variable in the for loop to however many you'd like
-# for i in range(100):
-#     gen_exquisite()
-#     print()
+for i in range(100):
+    gen_exquisite()
+    print()
 
 #continually output a new exquisite corpse line every two seconds
 # while True:
