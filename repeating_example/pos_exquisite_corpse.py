@@ -39,9 +39,8 @@ nouns = 'NN' or 'NNP'
 adverbs = 'RB' or 'RBS' or 'RBR'
 
 #this shows you how to create a series of functions that work together to tag a text file, then generate an exquisite corpse form
-def remove_punctuation(w):
-    word = re.sub(r'[^\w\s]', '', w.lower())
-    return word
+def remove_punctuation(word):
+    print("this is an unnecessary change")
 
 def pos_tagger(text, pos, pos_list):
     for (word, tag) in nltk.pos_tag(text):
