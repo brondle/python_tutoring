@@ -15,14 +15,17 @@ def pick_word():
 
 def test_length(word):
     if len(word) >6:
-        return word
+        return True
+    else:
+        return False
 
 def picker():
-    for i in range(len(words)):
-        v = pick_word()
-        test = test_length(v)
-        if test != None:
-            return test
+#    for i in range(len(words)):
+    v = pick_word()
+    if test_length(v):
+        return v
+    else:
+        return picker()
 
 def broken_up(acrostic):
     letters = list(acrostic)
