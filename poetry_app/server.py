@@ -16,7 +16,8 @@ from erasure_function import erase_words, erase_sentence, random_l, list_to_str,
 # h_dir ='./helpers'
 # sys.path.append('h_dir')
 
-#to run this program, cd into the directory then start/run the program. then go to the localhost:5000/name_of_app
+#to run this program: cd into the directory then type python3 server.py.
+# then go to the localhost:5000/name_of_app
 
 z = nltk.corpus.gutenberg.fileids()
 prondict = nltk.corpus.cmudict.dict()
@@ -57,7 +58,7 @@ def hello():
     # return str(gen_rando())
     # return str(" ".join(b))
    greeting = random.choice(greets) + ", " + random.choice(places)
-   return render_template("greetings.html",
+   return render_template("greetings2.html",
      greet=random.choice(greets), place=random.choice(places))
 
 
@@ -138,7 +139,8 @@ run_simple.x = ps_simple(5)
 @app.route('/fibo_phone')
 def fibo_phone():
     my_variable = run_simple()
-    return render_template("simple.html", words =my_variable)
+    # return render_template("simple.html", words =my_variable)
+    return render_template("index.html", words=my_variable)
 
 def ps(fib):
     for i in range(len(fib)):

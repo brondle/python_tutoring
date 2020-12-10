@@ -86,29 +86,36 @@ print('\n'*3)#put some blank space above the output
 
 vowel = ["a","e","i","o","u"]
 
-sentence_structure = {
-    'NN': ['JJ','NN','VB', 'JJ','NN'],
-    'VBD':[ 'JJ','NN','VBD', 'JJ','NN'],
-    'NNS':['JJ','NNS','VB', 'JJ','NN'],
-    'NNP':['JJ','NNP','VB','JJ','NN'],
-    'NNPS':['JJ','NNPS','VB', 'JJ','NN'],
-    'JJR':['JJS','NN', 'VB','JJR','NN'],
-    'JJS':['JJR','NN', 'VB','JJS','NN']
-    #make a list of proper conjugations of the series
-}
+sentence_structure = [['JJ','NN','VB', 'JJ','NN'],[ 'JJ','NN','VBD', 'JJ','NN'],['JJ','NNS','VB', 'JJ','NN'],['JJ','NNP','VB','JJ','NN'],\
+                      ['JJ','NNPS','VB', 'JJ','NN'],['JJS','NN', 'VB','JJR','NN'], ['JJR','NN', 'VB','JJS','NN']]
+
+# sentence_structure = {
+#     'NN': ['JJ','NN','VB', 'JJ','NN'],
+#     'VBD':[ 'JJ','NN','VBD', 'JJ','NN'],
+#     'NNS':['JJ','NNS','VB', 'JJ','NN'],
+#     'NNP':['JJ','NNP','VB','JJ','NN'],
+#     'NNPS':['JJ','NNPS','VB', 'JJ','NN'],
+#     'JJR':['JJS','NN', 'VB','JJR','NN'],
+#     'JJS':['JJR','NN', 'VB','JJS','NN']
+#     #make a list of proper conjugations of the series
+# }
 
 def exquisite_dif():
     #pick a random pos type here
-    structure_list = ['NN', 'NNP','NNS','NNPS', 'VBD','JJR','JJS']
-    my_pos = random.choice(structure_list)
-    # print(my_pos, len(my_pos))
-    my_array = [r(pos_lists[my_pos])] #create an array that starts with the random pos of the type that we picked
-    for i in sentence_structure[my_pos]:
+    # structure_list = ['NN', 'NNP','NNS','NNPS', 'VBD','JJR','JJS']
+    my_pos = random.choice(sentence_structure)
+    my_array = []
+    print(my_pos)
+    # my_array = [r(pos_lists[my_pos])] #create an array that starts with the random pos of the type that we picked
+    for i in my_pos:
         my_array.append(r(pos_lists[i])) #this chooses the grammatically correct one
+    print(my_array[3][0])
 
     if my_array[3][0] in vowel:
-        my_array.insert(4, 'an')
-    my_array.insert(4, 'a')
+        my_array.insert(3, 'an')
+    else:
+        my_array.insert(3, 'a')
+
     my_array.insert(0, 'The')
         # print(r(pos_lists[i]))
     #into my_array, add a first element 'the' and insert an 'a' or 'an' at the fourth item spot
