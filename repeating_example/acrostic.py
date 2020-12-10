@@ -14,14 +14,13 @@ def pick_word():
     return my_choice
 
 def test_length(word):
-    if len(word) >6:
-        return True
-    else:
-        return False
+    return len(word) > 6
 
 def picker():
 #    for i in range(len(words)):
     v = pick_word()
+    print('test length: ', test_length(v))
+
     if test_length(v):
         return v
     else:
