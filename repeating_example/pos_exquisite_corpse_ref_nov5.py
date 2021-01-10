@@ -39,6 +39,7 @@ def remove_punctuation(w):
 def pos_tagger(text, pos, pos_list):
     for (word, tag) in nltk.pos_tag(text):
         if tag == pos:
+            print('the tag', tag, 'the pos_list is ', pos_list)
             if word not in pos_list:
                 pos_list.append(word)
     return pos_list
@@ -64,6 +65,7 @@ def make_pos_lists():
 
     for key in pos_db:
         #if word is tagged as key, add to pos_db[key]:
+        print('the pos_db key is ',pos_db[key])
         pos_tagger(art_blob, key, pos_db[key])
     # print(pos_db)
 
@@ -83,6 +85,8 @@ def r(list_of_words):
 pos_lists = make_pos_lists()
 # make_lists()
 print('\n'*3)#put some blank space above the output
+
+print(pos_lists)
 
 vowel = ["a","e","i","o","u"]
 

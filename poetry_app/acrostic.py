@@ -8,7 +8,7 @@ from fp import r_punct_list
 # from rhymes import find_alliteration, find_phonemes, gen_rhyme_pair
 from helpers.rhymes import find_alliteration, find_phonemes, gen_rhyme_pair, gen_rando, gen_one_phone
 from helpers.this_helper import gen_random_num
-from nltk.tokenize import WhitespaceTokenizer, sent_tokenize
+from nltk.tokenize import WhitespaceTokenizer, sent_tokenize, word_tokenize
 from helpers.fp import find_phonemes_ngram
 from erasure_function import erase_words, erase_sentence, random_l, list_to_str, seq_of_sents
 # sys.path.append('/Users/ademirji/PycharmProjects/NaturalLangage/Tuesdays/python_tutoring/poetry_app/helpers/')
@@ -24,6 +24,7 @@ prondict = nltk.corpus.cmudict.dict()
 f = open('artistStatements.txt')
 raw2 = f.read()
 sentence = sent_tokenize(raw2)
+words = word_tokenize(raw2)
 
 phoneNum = -2
 phonemes = ['AH0', 'N']
@@ -142,9 +143,6 @@ def fibo_phone():
     # return render_template("simple.html", words =my_variable)
     return render_template("index.html", words=my_variable)
 
-@app.route('/erasure')
-
-
 def ps(fib):
     for i in range(len(fib)):
         ps.phrase = ''
@@ -195,6 +193,53 @@ def fibo_phone2():
     #     my_variable = ps_simple(5)
     #     time.sleep(2)
     return render_template("simple.html", words =my_variable2)
+
+def pick_word():
+    my_choice = random.choice(words)
+    return my_choice
+
+def test_length(word):
+    if len(word) >6:
+        return word
+
+def picker():
+    for i in range(len(words)):
+        v = pick_word()
+        test = test_length(v)
+        if test != None:
+            return test
+
+def broken_up(acrostic):
+    letters = list(acrostic)
+    return letters
+
+def letter_word(l):
+    temp_list = []
+    for i in words:
+        if i[:1] == l:
+            temp_list.append(i)
+    chosen_word = random.choice(temp_list)
+    return chosen_word
+
+def acrostic():
+    acrostic = picker()
+    lettre = broken_up(acrostic)
+    word_is = ''
+    for i in lettre[1:len(lettre)]:
+        word_is = word_is + ' '+ letter_word(i)
+    combo = acrostic + word_is
+    collection = combo.split()
+    new_phrase = ' '.join(collection)
+    return new_phrase
+    # for j in collection:
+    #     ' '.join(j)
+
+# acrostic()
+@app.route('/art_acrostic')
+def art_acrostic():
+    my_variable = acrostic()
+    # return render_template("simple.html", words =my_variable)
+    return render_template("index.html", words=my_variable)
 
 
 if __name__ == '__main__':
