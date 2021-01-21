@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <title>button refresh</title>
+  <style type="text/css">
+    body {
+      max-width: 600px;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 1em auto;
+    }
+  </style>
+<script src="//code.jquery.com/jquery-1.6.2.min.js"></script>
+<script>
+$(document).ready(function() {
+$("#btn_refresh").click(function(){
+location.reload(false);
+});
+$("#btn_reload").click(function(){
+location.reload(true);
+});
+});
+</script>
+
+</head>
+<body>
+
+
+<!-- <input type="" name=""> Type="button" VALUE="Reload Page" onClick="history.go(0)">
+ -->
+<!--     <form>
+      <input type="button" onclick="window.location.href='http://localhost:5000/fibo_phone';" value="next" />
+    </form> -->
+
+<body>
+<button id="btn_reload">next</button>
+
+
+  <h3>
+  {% autoescape false %} 
+  {{words}}
+  {% endautoescape %}
+
+</h3>
+</body>
+</html>
